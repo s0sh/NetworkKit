@@ -13,7 +13,7 @@ protocol NetworkServiceProtocol {
     func removeItem(item: Item) async throws
 }
 
-final class MagicNetworkService: BaseNetworkService<MagicRouter>, NetworkServiceProtocol {
+class MagicNetworkService: BaseNetworkService<MagicRouter>, NetworkServiceProtocol {
     func fetchItems() async throws -> [Item] {
         return try await request([Item].self, router: .fetchItems)
     }

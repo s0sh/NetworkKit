@@ -36,7 +36,7 @@ class BaseNetworkService<Router: URLRequestConvertible> {
     ///
     /// - Returns:
     ///   The decoded data of the specified type.
-    func request<T: Decodable>(_ returnType: T.Type, router: Router) async throws -> T {
+    public func request<T: Decodable>(_ returnType: T.Type, router: Router) async throws -> T {
         let request = try router.makeURLRequest()
         
         let (data, response) = try await urlSession.data(for: request)
